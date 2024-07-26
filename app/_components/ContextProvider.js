@@ -1,13 +1,29 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  useTransition,
+} from "react";
 
 const MyContext = createContext();
 
 export function ContextProvider({ children }) {
-  const [userNumber, setUserNumber] = useState(null);
+  const [activeModal, setActiveModal] = useState(null);
+  const [isPending, startTransition] = useTransition();
+  const curSection = useRef("");
 
   return (
-    <MyContext.Provider value={{ userNumber, setUserNumber }}>
+    <MyContext.Provider
+      value={{
+        activeModal,
+        isPending,
+        curSection,
+        setActiveModal,
+        startTransition,
+      }}
+    >
       {children}
     </MyContext.Provider>
   );

@@ -24,16 +24,6 @@ export async function reserveSeat(formData) {
 
   const reservationTime = Math.floor(new Date().getTime() / 1000);
 
-  console.log(
-    destination,
-    username,
-    phoneNumber,
-    numSeats,
-    session,
-    selectedBus,
-    reservationTime
-  );
-
   const { error } = await supabase
     .from("userReservations")
     .insert([

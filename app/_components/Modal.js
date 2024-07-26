@@ -9,17 +9,18 @@ import {
   deleteReservation,
   rescheduleSession,
 } from "../_lib/actions";
+import { useMyContext } from "./ContextProvider";
 
 export default function Modal({
-  curSection,
-  activeModal,
-  setActiveModal,
   user,
   busData,
-  startTransition,
+
   setOptimisticDelete,
 }) {
   const { id, session, selectedBus, numSeats, paid } = user;
+
+  const { curSection, activeModal, setActiveModal, startTransition } =
+    useMyContext();
 
   //using a transition to implement payment confirmation and session editing  in oder to display a loading state to signify that a mutation is going on
   function confirmPayment() {

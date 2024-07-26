@@ -3,17 +3,22 @@ import { confirmSelectedSeat } from "../_lib/actions";
 import { useRouter } from "next/navigation";
 import { seats } from "../_lib/data";
 import SmallLoader from "./SmallLoader";
+import SeatInputs from "./SeatInputs";
+import Button from "./Button";
 
 function AvailableSeats({
   paidReservationsForCurrentSession,
   curUserReservation,
 }) {
+  const [isPending, startTransition] = useTransition();
+
   const [seatsArr, setSeatsArr] = useState([]);
   const [allSeatsChosen, setAllSeatsChosen] = useState(null);
-  const [isPending, startTransition] = useTransition();
+
   const router = useRouter();
 
   const { numSeats, reservationTime, selectedSeat } = curUserReservation;
+
   const seatsLength = seatsArr.length;
   const jointData = { reservationTime, seatsArr };
 
@@ -69,7 +74,7 @@ function AvailableSeats({
                 seatsArr={seatsArr}
               />
             ))}
-            <Button seatsArr={seatsArr} pending={isPending} />
+            <Button seatsArrLength={seatsArr.length} pending={isPending} />
           </form>
         </div>
       )}{" "}
@@ -78,63 +83,3 @@ function AvailableSeats({
 }
 
 export default AvailableSeats;
-
-function SeatInputs({
-  seatsArr,
-  setSeatsArr,
-  seat,
-  numSeats,
-  paidReservationsForCurrentSession,
-}) {
-  const [selectedSeat, setSelectedSeat] = useState(null);
-
-  //filtering seats taken for current session
-  const seatsTaken = paidReservationsForCurrentSession?.map(
-    (paidReservation) => paidReservation.selectedSeat
-  );
-
-  const unavailableSeats = seatsTaken.includes(seat);
-
-  function handleSeat(e) {
-    const curVal = +e.target.value;
-    if (seatsArr.length === numSeats) return;
-
-    setSelectedSeat(curVal);
-    setSeatsArr((curSeat) => [...curSeat, curVal]);
-    console.log(selectedSeat);
-  }
-  return (
-    <input
-      disabled={
-        paidReservationsForCurrentSession.length ? unavailableSeats : false
-      }
-      className={`text-sm text-green-950 border border-green-700  text-center seatNumber   focus:outline-none ${
-        unavailableSeats
-          ? "cursor-not-allowed bg-red-700 opacity-80"
-          : "cursor-pointer hover:bg-green-700"
-      } ${selectedSeat ? "bg-green-700" : "bg-inherit"}`}
-      value={seat}
-      readOnly
-      onClick={handleSeat}
-    />
-  );
-}
-
-function Button({ seatsArr, pending }) {
-  return (
-    <button
-      disabled={!seatsArr.length}
-      className={`tracking-wider  col-span-full bg-green-800 py-2 flex justify-center items-center  text-green-50 font-semibold hover:opacity-80 ${
-        !seatsArr.length ? "cursor-not-allowed" : "cursor-pointer"
-      }`}
-    >
-      {pending ? (
-        <span className="flex items-center gap-1">
-          Confirming <SmallLoader />
-        </span>
-      ) : (
-        "Confirm Seat"
-      )}
-    </button>
-  );
-}

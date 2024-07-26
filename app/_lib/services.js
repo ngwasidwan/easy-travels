@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { supabase } from "./supabase";
 
-export async function getAllBuses() {
-  const { data, error } = await supabase.from("buses").select();
+export async function getLuxuryBuses() {
+  const { data, error } = await supabase.from("luxury_buses").select();
 
   if (error) notFound();
   return data;
@@ -10,7 +10,7 @@ export async function getAllBuses() {
 
 export async function getBus(busId) {
   const { data, error } = await supabase
-    .from("buses")
+    .from("luxury_buses")
     .select()
     .eq("id", busId)
     .single();

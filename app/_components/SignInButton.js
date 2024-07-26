@@ -3,7 +3,7 @@ import { signInAction } from "../_lib/actions";
 export default function SignInButton() {
   return (
     <form action={signInAction}>
-      <button className="flex items-center gap-8 border-2 border-slate-700 px-4 py-2">
+      <button className="flex items-center gap-6 border-2 border-green-700 px-3 py-1.5 hover:opacity-70">
         <img
           src="https://authjs.dev/img/providers/google.svg"
           alt="google logo"

@@ -1,19 +1,17 @@
 import { Suspense } from "react";
 import Filter from "../_components/Filter";
 import LuxuryBusList from "../_components/LuxuryBusList";
-import { getAllBuses } from "../_lib/services";
+
 import Loader from "../loading";
+import { getLuxuryBuses } from "../_lib/services";
 
 export const metadata = {
   title: "Luxury bus collection",
 };
 
-//to see latest bus uploads, we need to implement ISR for this server component so that is switches to a dynamic route and opts out of the data cache
-
-export const revalidate = 0;
-
 async function DestinationPage({ searchParams }) {
-  const data = await getAllBuses();
+  const data = await getLuxuryBuses();
+
   const filter = searchParams.destination ?? "all";
 
   let filterData;
@@ -39,7 +37,8 @@ async function DestinationPage({ searchParams }) {
       </p>
 
       <Filter />
-      <Suspense fallback={<Loader />} key={filter}>
+
+      <Suspense fallback={<Loader />}>
         <LuxuryBusList filterData={filterData} />
       </Suspense>
     </div>

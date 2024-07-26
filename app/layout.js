@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { ContextProvider } from "./_components/ContextProvider";
 
 export const metadata = {
-  title: "Easy travels",
+  title: "Easy Travels",
 };
 
 const myFont = Inter({

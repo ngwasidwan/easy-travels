@@ -1,4 +1,3 @@
-"use client";
 import home from "@/public/home.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +20,7 @@ export default function Home() {
         </h1>
         <Link
           href="/luxury_buses"
-          className="capitalize bg-green-950 bg-opacity-90 p-4 text-green-50 font-bold   border border-green-900 transition-all shadow-md shadow-green-200 hover:opacity-80"
+          className="capitalize bg-green-950 bg-opacity-90 p-4 text-green-50 font-bold   border border-green-900 transition-all shadow-md shadow-green-800 hover:opacity-80"
         >
           our Luxury bus collection
         </Link>
