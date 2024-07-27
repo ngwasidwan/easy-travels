@@ -2,7 +2,7 @@ import { useState, useTransition } from "react";
 import { confirmSelectedSeat } from "../_lib/actions";
 import { useRouter } from "next/navigation";
 import { seats } from "../_lib/data";
-import SmallLoader from "./SmallLoader";
+
 import SeatInputs from "./SeatInputs";
 import Button from "./Button";
 

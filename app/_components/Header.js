@@ -5,7 +5,7 @@ import logo from "@/public/logo.png";
 
 function Header() {
   return (
-    <header className="flex text-sm md:text-base items-center w-11/12 mx-auto relative border-b-[1px] border-b-green-700 py-4 ">
+    <header className="flex text-sm md:text-base items-center w-11/12 mx-auto relative border-b-[1px] border-b-gray-300 py-4 ">
       <div className=" w-full flex">
         <Link
           href="/"

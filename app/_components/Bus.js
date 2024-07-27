@@ -1,8 +1,11 @@
-import bus from "@/public/bus-4.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
-import * as icon from "@heroicons/react/24/outline";
+import {
+  MapPinIcon,
+  UsersIcon,
+  CurrencyDollarIcon,
+} from "@heroicons/react/24/outline";
 
 function Bus({ busData }) {
   return (
@@ -18,19 +21,19 @@ function Bus({ busData }) {
         </p>
         <p className="  capitalize  flex gap-4 items-center tracking-wide">
           <span>
-            <icon.MapPinIcon className="w-5" />
+            <MapPinIcon className="w-5" />
           </span>
           <span className="font-semibold">{busData.destination}</span>
         </p>
         <p className=" flex gap-4 tracking-wide items-center">
           <span>
-            <icon.UsersIcon className="w-5" />
+            <UsersIcon className="w-5" />
           </span>
           70 people
         </p>
         <p className=" flex gap-4 items-center tracking-wide">
           <span>
-            <icon.CurrencyDollarIcon className="w-5" />
+            <CurrencyDollarIcon className="w-5" />
           </span>
           {busData.price}
         </p>
