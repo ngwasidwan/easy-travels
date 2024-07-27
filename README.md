@@ -15,3 +15,7 @@ Bus traveling web app where users can pay their bus tickets, selects their seats
 implement google authentication using Next Auth where only authenticated users can access activity section to confirm, delete, or edit reservations.
 
 Ability of clients to select seats only after confirmation of payment
+
+### Author
+
+Ngwa sidwan @sabipikin

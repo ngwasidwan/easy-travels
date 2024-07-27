@@ -25,6 +25,9 @@ export default function Home() {
           our Luxury bus collection
         </Link>
       </div>
+      <p className="absolute bottom-2 w-full text-center tracking-wider text-[12px] text-gray-400 ">
+        created by sidwan @sabipikintech
+      </p>
     </main>
   );
 }
