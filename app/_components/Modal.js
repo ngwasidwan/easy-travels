@@ -63,7 +63,7 @@ export default function Modal({
     <div className="relative  z-20  " id="modal">
       <div className="flex justify-end" onClick={handleToggleModal}>
         <EllipsisVerticalIcon
-          className={`w-8 text-green-700 hover:border-green-700 hover:border p-0.2 ${
+          className={`sm:w-8 w-6 text-green-700 hover:border-green-700 hover:border p-0.2 ${
             active && "border border-green-700"
           }`}
         />

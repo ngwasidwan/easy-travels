@@ -64,10 +64,6 @@ export default function DashboardList({ data, busData }) {
           </li>
           <li>{user.amountPaid ? `$ ${user.amountPaid}` : "-"}</li>
           <Modal
-            // curSection={curSection}
-            // activeModal={activeModal}
-            // setActiveModal={setActiveModal}
-            // startTransition={startTransition}
             setOptimisticDelete={setOptimisticDelete}
             busData={busData}
             user={user}
