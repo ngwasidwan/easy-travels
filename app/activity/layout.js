@@ -2,12 +2,17 @@ import Link from "next/link";
 import { UsersIcon } from "@heroicons/react/24/outline";
 import { auth } from "../_lib/auth";
 import SignOutButton from "../_components/SignOutButton";
+import UnauthorizedUser from "../_components/UnauthorizedUser";
 
 export const metadata = {
   title: "Easy Travels | ticket seller ",
 };
 export default async function DashboardLayout({ children }) {
   const curSession = await auth();
+
+  const email = curSession.user.email;
+
+  if (email !== process.env.MY_EMAIL) return <UnauthorizedUser />;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[.2fr_1fr] w-11/12 mx-auto gap-10 mt-10 pb-5 ">
