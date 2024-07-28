@@ -11,12 +11,7 @@ import {
 } from "../_lib/actions";
 import { useMyContext } from "./ContextProvider";
 
-export default function Modal({
-  user,
-  busData,
-
-  setOptimisticDelete,
-}) {
+export default function Modal({ user, busData, setOptimisticDelete }) {
   const { id, session, selectedBus, numSeats, paid } = user;
 
   const { curSection, activeModal, setActiveModal, startTransition } =
@@ -34,6 +29,7 @@ export default function Modal({
       curSection.current = "paid";
       confirmReservation(data);
     });
+    setActiveModal(null);
   }
 
   function editSession() {
@@ -45,6 +41,7 @@ export default function Modal({
       curSection.current = "session";
       rescheduleSession(data);
     });
+    setActiveModal(null);
   }
 
   //implementing optimistic deleting of reservations
@@ -52,6 +49,7 @@ export default function Modal({
     startTransition(() => setOptimisticDelete(id));
 
     await deleteReservation(id);
+    setActiveModal(null);
   }
 
   const active = activeModal === id;

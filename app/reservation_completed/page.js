@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center gap-10 mt-10 w-11/12 mx-auto">
+    <div className="flex flex-col items-center gap-10 mt-10 w-11/12 mx-auto justify-center">
       <p className="text-lg tracking-wide">
         Seat Ordered Successfully 😊. Thanks for using our service
       </p>

@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 function Bus({ busData }) {
+
   return (
     <div className="text-base shadow-sm shadow-green-950">
       <figure className="relative min-h-60 w-full ">
